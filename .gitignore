@@ -1,0 +1,19 @@
+.agents/
+.claude/
+
+# Videos are intentionally kept local because they are too large for the repo.
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wmv
+*.flv
+*.ts
+*.m4v
+
+# Local OS/editor noise.
+Thumbs.db
+Desktop.ini
+.DS_Store
+__pycache__/
+*.pyc
