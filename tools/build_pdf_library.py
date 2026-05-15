@@ -21,11 +21,55 @@ TEXT_THRESHOLD = 80
 IMAGE_ZOOM = 2.0
 JPEG_QUALITY = 82
 
+# 资料库只保留学习内容，过滤培训/引流/广告类水印与外链文案。
+AD_PATTERNS = [
+    r"免费题库\s*[-－—]\s*微信搜索[:：]?\s*软考达人",
+    r"微信搜索[:：]?\s*软考达人",
+    r"手机端微信小程序[:：]?\s*软考达人",
+    r"PC端练习[:：]?\s*https?://ruankaodaren\.com\S*",
+    r"https?://ruankaodaren\.com\S*",
+    r"ruankaodaren\.com",
+    r"关注[「\"]?CTO说[」\"]?获取更多备考资料",
+    r"获取更多备考资料",
+]
+AD_LINE_KEYWORDS = ("软考达人", "ruankaodaren.com", "CTO说", "获取更多备考资料")
+SKIP_PATH_KEYWORDS = ("刷题软件", "软考达人", "ruankaodaren.com", "CTO说", "获取更多备考资料")
+
 
 def clean_name(value: str) -> str:
     value = re.sub(r"\.pdf$", "", value, flags=re.I)
     value = re.sub(r"^[0-9]+[、.．]\s*", "", value)
     return value.strip()
+
+
+def should_skip_path(path: Path) -> bool:
+    text = str(path)
+    return any(keyword in text for keyword in SKIP_PATH_KEYWORDS)
+
+
+def strip_ad_text(value: str) -> str:
+    cleaned = value
+    for pattern in AD_PATTERNS:
+        cleaned = re.sub(pattern, " ", cleaned, flags=re.I)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    if not cleaned:
+        return ""
+    if any(keyword in cleaned for keyword in AD_LINE_KEYWORDS):
+        return ""
+    return cleaned
+
+
+def clean_blocks(blocks: list[str]) -> list[str]:
+    cleaned_blocks: list[str] = []
+    for block in blocks:
+        lines: list[str] = []
+        for line in block.splitlines():
+            cleaned = strip_ad_text(line)
+            if cleaned:
+                lines.append(cleaned)
+        if lines:
+            cleaned_blocks.append("\n".join(lines))
+    return cleaned_blocks
 
 
 def slug_for(path: Path) -> str:
@@ -43,7 +87,6 @@ def category_for(path: Path) -> str:
 
 def kind_for(path: Path) -> str:
     name = path.name
-    parts = path.parts
     if "历年真题" in str(path):
         if "案例" in name:
             return "案例分析"
@@ -73,7 +116,7 @@ def text_blocks(page: fitz.Page) -> list[str]:
                 lines.append(text)
         if lines:
             blocks.append("\n".join(lines))
-    return blocks
+    return clean_blocks(blocks)
 
 
 def render_page(page: fitz.Page, target: Path) -> None:
@@ -199,11 +242,14 @@ def build_doc(pdf: Path) -> DocMeta:
     if toc:
         toc_links = []
         for level, label, page_no in toc[:120]:
+            if page_no <= 0:
+                continue
             indent = (level - 1) * 14
             toc_links.append(
                 f'<a style="padding-left:{indent}px" href="#p{page_no}">{html.escape(label)}</a>'
             )
-        content_parts.append('<nav class="toc"><h2>目录</h2>' + "\n".join(toc_links) + "</nav>")
+        if toc_links:
+            content_parts.append('<nav class="toc"><h2>目录</h2>' + "\n".join(toc_links) + "</nav>")
 
     for idx in range(1, len(doc) + 1):
         try:
@@ -219,7 +265,7 @@ def build_doc(pdf: Path) -> DocMeta:
                 fallback = page.get_text("text") or ""
             except Exception:
                 fallback = ""
-            blocks = [line.strip() for line in fallback.splitlines() if line.strip()]
+            blocks = clean_blocks([line.strip() for line in fallback.splitlines() if line.strip()])
         page_text = "\n".join(blocks).strip()
         chars += len(page_text)
         if page_text:
@@ -271,7 +317,7 @@ def build_doc(pdf: Path) -> DocMeta:
 """
     write_text(DOCS / f"{slug}.html", doc_html)
 
-    search_text = " ".join(search_chunks)
+    search_text = "\n".join(chunk for chunk in search_chunks if strip_ad_text(chunk))
     write_text(DOCS / f"{slug}.search.txt", search_text)
     return DocMeta(
         title=title,
@@ -356,7 +402,10 @@ def main() -> None:
     PAGE_IMAGES.mkdir(parents=True, exist_ok=True)
     pdfs = sorted(
         p for p in ROOT.rglob("*.pdf")
-        if OUT not in p.parents and ".agents" not in p.parts and ".claude" not in p.parts
+        if OUT not in p.parents
+        and ".agents" not in p.parts
+        and ".claude" not in p.parts
+        and not should_skip_path(p)
     )
     docs = []
     for index, pdf in enumerate(pdfs, start=1):
