@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>软考学习资料库</title>
+  <style>
+:root{color-scheme:light;--bg:#f8fafc;--panel:#fff;--text:#1e293b;--muted:#64748b;--line:#dbe3ee;--blue:#2563eb;--blue2:#1d4ed8;--green:#16835f;--amber:#a16207}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Microsoft YaHei","PingFang SC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.shell{display:grid;grid-template-columns:320px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--line);background:#eef4fb;padding:24px}
+.brand{font-size:24px;font-weight:800;line-height:1.2;margin:0 0 8px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.search{width:100%;height:44px;border:1px solid var(--line);border-radius:8px;padding:0 12px;font-size:16px;background:#fff;color:var(--text)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;color:var(--muted);font-size:13px;cursor:pointer}
+.chip.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.main{padding:32px;max-width:1180px;width:100%}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+.stat b{display:block;font-size:26px;line-height:1.1}
+.stat span{color:var(--muted);font-size:13px}
+.section-title{margin:28px 0 12px;font-size:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;transition:.18s ease;min-height:148px}
+.card:hover{border-color:#94a3b8;transform:translateY(-1px);box-shadow:0 8px 24px rgba(15,23,42,.08)}
+.card h3{font-size:16px;line-height:1.35;margin:0 0 8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.badge{display:inline-flex;align-items:center;border-radius:999px;background:#eef2ff;color:#3730a3;padding:3px 8px;font-size:12px}
+.badge.scan{background:#fff7ed;color:#9a3412}.badge.text{background:#ecfdf5;color:#047857}
+.path{color:var(--muted);font-size:12px;line-height:1.5;word-break:break-all}
+.doc-header{border-bottom:1px solid var(--line);background:#fff;padding:24px 32px;position:sticky;top:0;z-index:10}
+.doc-header h1{font-size:24px;line-height:1.25;margin:0 0 8px}
+.back{display:inline-flex;align-items:center;min-height:36px;margin-bottom:8px;color:var(--blue);font-weight:700}
+.reader{max-width:900px;margin:0 auto;padding:28px 20px 80px}
+.page{background:#fff;border:1px solid var(--line);border-radius:8px;margin:0 0 18px;padding:22px;box-shadow:0 2px 10px rgba(15,23,42,.04)}
+.page h2{font-size:15px;color:var(--muted);margin:0 0 14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.page h3{font-size:20px;line-height:1.4;margin:18px 0 8px}
+.page p{margin:0 0 12px;text-align:justify}
+.page-img{display:block;width:100%;height:auto;border-radius:4px;background:#f1f5f9}
+.toc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px;margin:0 0 18px}
+.toc h2{margin:0 0 10px;font-size:16px}.toc a{display:block;color:var(--blue);padding:3px 0}
+.empty{color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:8px;padding:24px}
+@media(max-width:840px){.shell{display:block}.sidebar{position:static;height:auto}.main{padding:20px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.doc-header{position:static;padding:18px}.reader{padding:18px 12px 56px}.page{padding:14px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <h1 class="brand">软考学习资料库</h1>
+      <p class="sub">PDF 已拆成 HTML 阅读页；扫描件用高分辨率页面图承载，文字层 PDF 直接排成网页文本。</p>
+      <input id="search" class="search" type="search" placeholder="搜索标题、年份、类型">
+      <div class="filters"><button class="chip active" data-filter="全部">全部</button>
+<button class="chip" data-filter="2025年软考实名认证操作流程及常见问题说明">2025年软考实名认证操作流程及常见问题说明</button>
+<button class="chip" data-filter="历年真题（2016-2024年）">历年真题（2016-2024年）</button>
+<button class="chip" data-filter="学前必看 - 软考基本介绍讲解及考试时间">学前必看 - 软考基本介绍讲解及考试时间</button>
+<button class="chip" data-filter="官方教材+一本通（最新第三版）">官方教材+一本通（最新第三版）</button>
+<button class="chip" data-filter="机考讲解及模拟">机考讲解及模拟</button>
+<button class="chip" data-filter="根目录资料">根目录资料</button>
+<button class="chip" data-filter="学习资料">学习资料</button>
+<button class="chip" data-filter="报考指南">报考指南</button>
+<button class="chip" data-filter="教材/一本通">教材/一本通</button>
+<button class="chip" data-filter="机考说明">机考说明</button>
+<button class="chip" data-filter="案例分析">案例分析</button>
+<button class="chip" data-filter="考点资料">考点资料</button>
+<button class="chip" data-filter="选择题真题">选择题真题</button></div>
+    </aside>
+    <main class="main">
+      <section class="stats">
+        <div class="stat"><b>103</b><span>PDF 资料</span></div>
+        <div class="stat"><b>3258</b><span>总页数</span></div>
+        <div class="stat"><b>618</b><span>文字页</span></div>
+        <div class="stat"><b>2639</b><span>图像页</span></div>
+      </section>
+      <h2 class="section-title">官方教材+一本通（最新第三版）</h2><div class="grid"><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="教材/一本通" data-search="考试大纲（第3版） 01、官方教材+一本通（最新第三版）\00、考试大纲（第3版）.pdf 官方教材+一本通（最新第三版） 教材/一本通" href="docs/考试大纲-第3版-5ab0f30c.html">
+  <h3>考试大纲（第3版）</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\00、考试大纲（第3版）.pdf</div>
+  <div class="meta">
+    <span class="badge">教材/一本通</span>
+    <span class="badge">3 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 3</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="教材/一本通" data-search="系统集成项目管理工程师 第3版【高清带书签可搜索】 01、官方教材+一本通（最新第三版）\01、系统集成项目管理工程师 第3版【高清带书签可搜索】.pdf 官方教材+一本通（最新第三版） 教材/一本通" href="docs/系统集成项目管理工程师-第3版-高清带书签可搜索-70f83aa2.html">
+  <h3>系统集成项目管理工程师 第3版【高清带书签可搜索】</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\01、系统集成项目管理工程师 第3版【高清带书签可搜索】.pdf</div>
+  <div class="meta">
+    <span class="badge">教材/一本通</span>
+    <span class="badge">613 页</span>
+    <span class="badge text">文字 611</span>
+    <span class="badge scan">图像 1</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="中项《综合知识》一本通 01、官方教材+一本通（最新第三版）\02、中项《综合知识》一本通.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/中项-综合知识-一本通-23f40ea2.html">
+  <h3>中项《综合知识》一本通</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\02、中项《综合知识》一本通.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">380 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 380</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="中项《计算案例背诵》一本通 01、官方教材+一本通（最新第三版）\03、中项《计算案例背诵》一本通.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/中项-计算案例背诵-一本通-146b5f7f.html">
+  <h3>中项《计算案例背诵》一本通</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\03、中项《计算案例背诵》一本通.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">238 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 238</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="知识点一本通（第三版）带书签 01、官方教材+一本通（最新第三版）\04、知识点一本通（第三版）带书签.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/知识点一本通-第三版-带书签-822eb24d.html">
+  <h3>知识点一本通（第三版）带书签</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\04、知识点一本通（第三版）带书签.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">197 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 197</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="十大管理输入输出工具与技术总结 01、官方教材+一本通（最新第三版）\05、十大管理输入输出工具与技术总结.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/十大管理输入输出工具与技术总结-79011501.html">
+  <h3>十大管理输入输出工具与技术总结</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\05、十大管理输入输出工具与技术总结.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">22 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 22</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="集成1-16章速记卡 01、官方教材+一本通（最新第三版）\06、集成1-16章速记卡.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/集成1-16章速记卡-b6dd8974.html">
+  <h3>集成1-16章速记卡</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\06、集成1-16章速记卡.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">16 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 16</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="中项输入输出及其定义 01、官方教材+一本通（最新第三版）\08、中项输入输出及其定义.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/中项输入输出及其定义-b062db62.html">
+  <h3>中项输入输出及其定义</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\08、中项输入输出及其定义.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">23 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 23</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="教材/一本通" data-search="中项一本通V1.4.0-(第3版-新版）-（选看） 01、官方教材+一本通（最新第三版）\09、中项一本通V1.4.0-(第3版-新版）-（选看）.pdf 官方教材+一本通（最新第三版） 教材/一本通" href="docs/中项一本通V1-4-0-第3版-新版-选看-5795c82f.html">
+  <h3>中项一本通V1.4.0-(第3版-新版）-（选看）</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\09、中项一本通V1.4.0-(第3版-新版）-（选看）.pdf</div>
+  <div class="meta">
+    <span class="badge">教材/一本通</span>
+    <span class="badge">727 页</span>
+    <span class="badge text">文字 1</span>
+    <span class="badge scan">图像 726</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="10大管理的过程和作用总结 01、官方教材+一本通（最新第三版）\10、10大管理的过程和作用总结.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/10大管理的过程和作用总结-324afd1e.html">
+  <h3>10大管理的过程和作用总结</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\10、10大管理的过程和作用总结.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">5 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 5</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="考前冲刺IT知识4小时突击材料 01、官方教材+一本通（最新第三版）\11、考前冲刺IT知识4小时突击材料.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/考前冲刺IT知识4小时突击材料-d05a5a49.html">
+  <h3>考前冲刺IT知识4小时突击材料</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\11、考前冲刺IT知识4小时突击材料.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">20 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 20</span>
+  </div>
+</a><a class="card" data-card data-category="官方教材+一本通（最新第三版）" data-kind="考点资料" data-search="中项新版黄金考点 01、官方教材+一本通（最新第三版）\12、中项新版黄金考点.pdf 官方教材+一本通（最新第三版） 考点资料" href="docs/中项新版黄金考点-6ff0d32b.html">
+  <h3>中项新版黄金考点</h3>
+  <div class="path">01、官方教材+一本通（最新第三版）\12、中项新版黄金考点.pdf</div>
+  <div class="meta">
+    <span class="badge">考点资料</span>
+    <span class="badge">117 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 117</span>
+  </div>
+</a></div><h2 class="section-title">历年真题（2016-2024年）</h2><div class="grid"><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2016年下半年案例分析【无答案版】 02、历年真题（2016-2024年）\2016年下半年\2016年下半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2016年下半年案例分析-无答案版-be4e6e44.html">
+  <h3>2016年下半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2016年下半年\2016年下半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">5 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 5</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2016年下半年案例分析【有答案版】 02、历年真题（2016-2024年）\2016年下半年\2016年下半年案例分析【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2016年下半年案例分析-有答案版-bec5af03.html">
+  <h3>2016年下半年案例分析【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2016年下半年\2016年下半年案例分析【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2016年下半年考试试题【无答案版】 02、历年真题（2016-2024年）\2016年下半年\2016年下半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2016年下半年考试试题-无答案版-d4dce931.html">
+  <h3>2016年下半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2016年下半年\2016年下半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2016年下半年考试试题【有答案版】 02、历年真题（2016-2024年）\2016年下半年\2016年下半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2016年下半年考试试题-有答案版-d253271d.html">
+  <h3>2016年下半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2016年下半年\2016年下半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">21 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 21</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2017年上半年案例分析【无答案版】 02、历年真题（2016-2024年）\2017年上半年\2017年上半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2017年上半年案例分析-无答案版-ccd455f8.html">
+  <h3>2017年上半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年上半年\2017年上半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">5 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 5</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2017年上半年案例分析【有答案版】 02、历年真题（2016-2024年）\2017年上半年\2017年上半年案例分析【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2017年上半年案例分析-有答案版-d731083d.html">
+  <h3>2017年上半年案例分析【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年上半年\2017年上半年案例分析【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2017年上半年考试试题【无答案版】 02、历年真题（2016-2024年）\2017年上半年\2017年上半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2017年上半年考试试题-无答案版-ced4af75.html">
+  <h3>2017年上半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年上半年\2017年上半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">12 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 12</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2017年上半年考试试题【有答案版】 02、历年真题（2016-2024年）\2017年上半年\2017年上半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2017年上半年考试试题-有答案版-0e029cb0.html">
+  <h3>2017年上半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年上半年\2017年上半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">23 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 23</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2017年下半年案例分析 02、历年真题（2016-2024年）\2017年下半年\2017年下半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2017年下半年案例分析-47c9988b.html">
+  <h3>2017年下半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年下半年\2017年下半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">7 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 7</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2017年下半年案例分析【无答案版】 02、历年真题（2016-2024年）\2017年下半年\2017年下半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2017年下半年案例分析-无答案版-7d8c2ce4.html">
+  <h3>2017年下半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年下半年\2017年下半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">5 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 5</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2017年下半年考试试题【无答案版】 02、历年真题（2016-2024年）\2017年下半年\2017年下半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2017年下半年考试试题-无答案版-4087a888.html">
+  <h3>2017年下半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年下半年\2017年下半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">12 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 12</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2017年下半年考试试题【有答案版】 02、历年真题（2016-2024年）\2017年下半年\2017年下半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2017年下半年考试试题-有答案版-1abf5ddd.html">
+  <h3>2017年下半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2017年下半年\2017年下半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">25 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 25</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2018年上半年案例分析 02、历年真题（2016-2024年）\2018年上半年\2018年上半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2018年上半年案例分析-15655060.html">
+  <h3>2018年上半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年上半年\2018年上半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">8 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 8</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2018年上半年案例分析【无答案版】 02、历年真题（2016-2024年）\2018年上半年\2018年上半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2018年上半年案例分析-无答案版-cadd5cf5.html">
+  <h3>2018年上半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年上半年\2018年上半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2018年上半年考试试题【无答案版】 02、历年真题（2016-2024年）\2018年上半年\2018年上半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2018年上半年考试试题-无答案版-5c124931.html">
+  <h3>2018年上半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年上半年\2018年上半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2018年上半年考试试题【有答案版】 02、历年真题（2016-2024年）\2018年上半年\2018年上半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2018年上半年考试试题-有答案版-873cd1c0.html">
+  <h3>2018年上半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年上半年\2018年上半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">21 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 21</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2018年下半年案例分析 02、历年真题（2016-2024年）\2018年下半年\2018年下半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2018年下半年案例分析-46723ee3.html">
+  <h3>2018年下半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年下半年\2018年下半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2018年下半年案例分析【无答案版】 02、历年真题（2016-2024年）\2018年下半年\2018年下半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2018年下半年案例分析-无答案版-b0a07a07.html">
+  <h3>2018年下半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年下半年\2018年下半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2018年下半年考试试题【无答案版】 02、历年真题（2016-2024年）\2018年下半年\2018年下半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2018年下半年考试试题-无答案版-2ae53c2d.html">
+  <h3>2018年下半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年下半年\2018年下半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2018年下半年考试试题【有答案版】 02、历年真题（2016-2024年）\2018年下半年\2018年下半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2018年下半年考试试题-有答案版-cbe991f5.html">
+  <h3>2018年下半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2018年下半年\2018年下半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">20 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 20</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2019年上半年案例分析 02、历年真题（2016-2024年）\2019年上半年\2019年上半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2019年上半年案例分析-245784d1.html">
+  <h3>2019年上半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年上半年\2019年上半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2019年上半年案例分析【无答案版】 02、历年真题（2016-2024年）\2019年上半年\2019年上半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2019年上半年案例分析-无答案版-0d814ffd.html">
+  <h3>2019年上半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年上半年\2019年上半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2019年上半年考试试题【无答案版】 02、历年真题（2016-2024年）\2019年上半年\2019年上半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2019年上半年考试试题-无答案版-d5434371.html">
+  <h3>2019年上半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年上半年\2019年上半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2019年上半年考试试题【有答案版】 02、历年真题（2016-2024年）\2019年上半年\2019年上半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2019年上半年考试试题-有答案版-b17e548a.html">
+  <h3>2019年上半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年上半年\2019年上半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">19 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 19</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2019年下半年案例分析 02、历年真题（2016-2024年）\2019年下半年\2019年下半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2019年下半年案例分析-52806ba7.html">
+  <h3>2019年下半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年下半年\2019年下半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2019年下半年案例分析【无答案版】 02、历年真题（2016-2024年）\2019年下半年\2019年下半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2019年下半年案例分析-无答案版-a9687fb8.html">
+  <h3>2019年下半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年下半年\2019年下半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2019年下半年考试试题【无答案版】 02、历年真题（2016-2024年）\2019年下半年\2019年下半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2019年下半年考试试题-无答案版-e5a7e656.html">
+  <h3>2019年下半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年下半年\2019年下半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2019年下半年考试试题【有答案版】 02、历年真题（2016-2024年）\2019年下半年\2019年下半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2019年下半年考试试题-有答案版-a9facdef.html">
+  <h3>2019年下半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2019年下半年\2019年下半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">18 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 18</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2020年下半年案例分析 02、历年真题（2016-2024年）\2020年下半年\2020年下半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2020年下半年案例分析-286e0f4d.html">
+  <h3>2020年下半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2020年下半年\2020年下半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2020年下半年案例分析【无答案版】 02、历年真题（2016-2024年）\2020年下半年\2020年下半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2020年下半年案例分析-无答案版-52a1bb28.html">
+  <h3>2020年下半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2020年下半年\2020年下半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2020年下半年考试试题【无答案版】 02、历年真题（2016-2024年）\2020年下半年\2020年下半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2020年下半年考试试题-无答案版-0edf9034.html">
+  <h3>2020年下半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2020年下半年\2020年下半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">10 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 10</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2020年下半年考试试题【有答案版】 02、历年真题（2016-2024年）\2020年下半年\2020年下半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2020年下半年考试试题-有答案版-94151a04.html">
+  <h3>2020年下半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2020年下半年\2020年下半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">16 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 16</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2021年上半年案例分析 02、历年真题（2016-2024年）\2021年上半年\2021年上半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2021年上半年案例分析-0e1c7dad.html">
+  <h3>2021年上半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年上半年\2021年上半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">5 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 5</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2021年上半年案例分析【无答案版】 02、历年真题（2016-2024年）\2021年上半年\2021年上半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2021年上半年案例分析-无答案版-a8b5d3e8.html">
+  <h3>2021年上半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年上半年\2021年上半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">3 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 3</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2021年上半年考试试题【无答案版】 02、历年真题（2016-2024年）\2021年上半年\2021年上半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2021年上半年考试试题-无答案版-6ba5b402.html">
+  <h3>2021年上半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年上半年\2021年上半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">10 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 10</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2021年上半年考试试题【有答案版】 02、历年真题（2016-2024年）\2021年上半年\2021年上半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2021年上半年考试试题-有答案版-cc049b0c.html">
+  <h3>2021年上半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年上半年\2021年上半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">17 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 17</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2021年下半年案例分析 02、历年真题（2016-2024年）\2021年下半年\2021年下半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2021年下半年案例分析-6e4f01e4.html">
+  <h3>2021年下半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年下半年\2021年下半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2021年下半年案例分析【无答案版】 02、历年真题（2016-2024年）\2021年下半年\2021年下半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2021年下半年案例分析-无答案版-b6af9a44.html">
+  <h3>2021年下半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年下半年\2021年下半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">3 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 3</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2021年下半年考试试题【无答案版】 02、历年真题（2016-2024年）\2021年下半年\2021年下半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2021年下半年考试试题-无答案版-114cae55.html">
+  <h3>2021年下半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年下半年\2021年下半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">10 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 10</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2021年下半年考试试题【有答案版】 02、历年真题（2016-2024年）\2021年下半年\2021年下半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2021年下半年考试试题-有答案版-f0849a13.html">
+  <h3>2021年下半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2021年下半年\2021年下半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">20 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 20</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年上半年案例分析 02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年上半年案例分析-1c1303dd.html">
+  <h3>2022年上半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年上半年案例分析【无答案版】 02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年上半年案例分析-无答案版-385067b3.html">
+  <h3>2022年上半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年上半年案例分析（广东卷） 02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析（广东卷）.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年上半年案例分析-广东卷-321278f9.html">
+  <h3>2022年上半年案例分析（广东卷）</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析（广东卷）.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年上半年案例分析（广东卷）【无答案版】 02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析（广东卷）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年上半年案例分析-广东卷-无答案版-63eb4b03.html">
+  <h3>2022年上半年案例分析（广东卷）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年案例分析（广东卷）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年上半年考试试题【无答案版】 02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年上半年考试试题-无答案版-ff14a7b3.html">
+  <h3>2022年上半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年上半年考试试题【无答案版】（广东卷） 02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【无答案版】（广东卷）.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年上半年考试试题-无答案版-广东卷-1b9c9c05.html">
+  <h3>2022年上半年考试试题【无答案版】（广东卷）</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【无答案版】（广东卷）.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">9 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 9</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年上半年考试试题【有答案版】 02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年上半年考试试题-有答案版-21202f05.html">
+  <h3>2022年上半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">18 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 18</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年上半年考试试题【有答案版】（广东卷） 02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【有答案版】（广东卷）.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年上半年考试试题-有答案版-广东卷-f494dcc3.html">
+  <h3>2022年上半年考试试题【有答案版】（广东卷）</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年上半年\2022年上半年考试试题【有答案版】（广东卷）.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">17 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 17</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年下半年案例分析 02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年下半年案例分析-24adde03.html">
+  <h3>2022年下半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年下半年案例分析【无答案版】 02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年下半年案例分析-无答案版-a39dcd61.html">
+  <h3>2022年下半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年下半年案例分析（广东卷） 02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析（广东卷）.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年下半年案例分析-广东卷-9644b58d.html">
+  <h3>2022年下半年案例分析（广东卷）</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析（广东卷）.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2022年下半年案例分析（广东卷）【无答案版】 02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析（广东卷）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2022年下半年案例分析-广东卷-无答案版-bd1fbc86.html">
+  <h3>2022年下半年案例分析（广东卷）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年案例分析（广东卷）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年下半年考试试题【无答案版】 02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年下半年考试试题-无答案版-24ecb026.html">
+  <h3>2022年下半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年下半年考试试题【无答案版】（广东卷） 02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【无答案版】（广东卷）.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年下半年考试试题-无答案版-广东卷-c86601c5.html">
+  <h3>2022年下半年考试试题【无答案版】（广东卷）</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【无答案版】（广东卷）.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年下半年考试试题【有答案版】 02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年下半年考试试题-有答案版-b1dea395.html">
+  <h3>2022年下半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">17 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 17</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2022年下半年考试试题【有答案版】（广东卷） 02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【有答案版】（广东卷）.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2022年下半年考试试题-有答案版-广东卷-5ee78ccb.html">
+  <h3>2022年下半年考试试题【有答案版】（广东卷）</h3>
+  <div class="path">02、历年真题（2016-2024年）\2022年下半年\2022年下半年考试试题【有答案版】（广东卷）.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">18 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 18</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年上半年案例分析 02、历年真题（2016-2024年）\2023年上半年\2023年上半年案例分析.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年上半年案例分析-9e035878.html">
+  <h3>2023年上半年案例分析</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年上半年\2023年上半年案例分析.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">7 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 7</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年上半年案例分析【无答案版】 02、历年真题（2016-2024年）\2023年上半年\2023年上半年案例分析【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年上半年案例分析-无答案版-87d225cb.html">
+  <h3>2023年上半年案例分析【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年上半年\2023年上半年案例分析【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第1批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第1批次）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第1批次-无答案版-32cf6c9e.html">
+  <h3>2023年下半年案例分析（第1批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第1批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第1批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第1批次）【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第1批次-有答案版-8666c118.html">
+  <h3>2023年下半年案例分析（第1批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第1批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">5 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 5</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第2批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第2批次）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第2批次-无答案版-603ae1da.html">
+  <h3>2023年下半年案例分析（第2批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第2批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第2批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第2批次）【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第2批次-有答案版-5d28b53c.html">
+  <h3>2023年下半年案例分析（第2批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第2批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第3批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第3批次）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第3批次-无答案版-0b448345.html">
+  <h3>2023年下半年案例分析（第3批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第3批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第3批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第3批次）【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第3批次-有答案版-30bfb26b.html">
+  <h3>2023年下半年案例分析（第3批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第3批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第4批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第4批次）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第4批次-无答案版-a80d9fbd.html">
+  <h3>2023年下半年案例分析（第4批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第4批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第4批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第4批次）【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第4批次-有答案版-4e42a1fc.html">
+  <h3>2023年下半年案例分析（第4批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第4批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第5批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第5批次）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第5批次-无答案版-f946b20e.html">
+  <h3>2023年下半年案例分析（第5批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第5批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第5批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第5批次）【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第5批次-有答案版-6f92ef5d.html">
+  <h3>2023年下半年案例分析（第5批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第5批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第6批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第6批次）【无答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第6批次-无答案版-01ec77bf.html">
+  <h3>2023年下半年案例分析（第6批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第6批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">3 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 3</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="案例分析" data-search="2023年下半年案例分析（第6批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第6批次）【有答案版】.pdf 历年真题（2016-2024年） 案例分析" href="docs/2023年下半年案例分析-第6批次-有答案版-0bc98d5c.html">
+  <h3>2023年下半年案例分析（第6批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月案例分析真题\2023年下半年案例分析（第6批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">案例分析</span>
+    <span class="badge">4 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 4</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年上半年考试试题【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年上半年考试试题【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年上半年考试试题-无答案版-c3242243.html">
+  <h3>2023年上半年考试试题【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年上半年考试试题【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年上半年考试试题【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年上半年考试试题【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年上半年考试试题-有答案版-2d9336f6.html">
+  <h3>2023年上半年考试试题【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年上半年考试试题【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">19 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 19</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第1批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第1批次）【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第1批次-无答案版-a5a2a01b.html">
+  <h3>2023年下半年考试试题（第1批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第1批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">9 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 9</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第1批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第1批次）【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第1批次-有答案版-998f5cea.html">
+  <h3>2023年下半年考试试题（第1批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第1批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">15 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 15</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第2批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第2批次）【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第2批次-无答案版-e609b84f.html">
+  <h3>2023年下半年考试试题（第2批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第2批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第2批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第2批次）【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第2批次-有答案版-af3569be.html">
+  <h3>2023年下半年考试试题（第2批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第2批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">19 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 19</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第3批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第3批次）【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第3批次-无答案版-0d1628da.html">
+  <h3>2023年下半年考试试题（第3批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第3批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">9 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 9</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第3批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第3批次）【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第3批次-有答案版-36a03bf0.html">
+  <h3>2023年下半年考试试题（第3批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第3批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">15 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 15</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第4批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第4批次）【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第4批次-无答案版-6a687430.html">
+  <h3>2023年下半年考试试题（第4批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第4批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">9 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 9</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第4批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第4批次）【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第4批次-有答案版-2a980e1d.html">
+  <h3>2023年下半年考试试题（第4批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第4批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">15 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 15</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第5批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第5批次）【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第5批次-无答案版-406736b6.html">
+  <h3>2023年下半年考试试题（第5批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第5批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">13 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 13</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第5批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第5批次）【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第5批次-有答案版-4a58008d.html">
+  <h3>2023年下半年考试试题（第5批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第5批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">21 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 21</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第6批次）【无答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第6批次）【无答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第6批次-无答案版-6d8d38c7.html">
+  <h3>2023年下半年考试试题（第6批次）【无答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第6批次）【无答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">11 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 11</span>
+  </div>
+</a><a class="card" data-card data-category="历年真题（2016-2024年）" data-kind="选择题真题" data-search="2023年下半年考试试题（第6批次）【有答案版】 02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第6批次）【有答案版】.pdf 历年真题（2016-2024年） 选择题真题" href="docs/2023年下半年考试试题-第6批次-有答案版-5faf4b68.html">
+  <h3>2023年下半年考试试题（第6批次）【有答案版】</h3>
+  <div class="path">02、历年真题（2016-2024年）\2023年下半年\2023年11月选择题真题\2023年下半年考试试题（第6批次）【有答案版】.pdf</div>
+  <div class="meta">
+    <span class="badge">选择题真题</span>
+    <span class="badge">16 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 16</span>
+  </div>
+</a></div><h2 class="section-title">机考讲解及模拟</h2><div class="grid"><a class="card" data-card data-category="机考讲解及模拟" data-kind="机考说明" data-search="【官方】软考机考-绘图指南 03、机考讲解及模拟\【官方】软考机考-绘图指南.pdf 机考讲解及模拟 机考说明" href="docs/官方-软考机考-绘图指南-e5f40d74.html">
+  <h3>【官方】软考机考-绘图指南</h3>
+  <div class="path">03、机考讲解及模拟\【官方】软考机考-绘图指南.pdf</div>
+  <div class="meta">
+    <span class="badge">机考说明</span>
+    <span class="badge">16 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 16</span>
+  </div>
+</a><a class="card" data-card data-category="机考讲解及模拟" data-kind="机考说明" data-search="机考官方模拟练习 03、机考讲解及模拟\机考官方模拟练习.pdf 机考讲解及模拟 机考说明" href="docs/机考官方模拟练习-07ed6c80.html">
+  <h3>机考官方模拟练习</h3>
+  <div class="path">03、机考讲解及模拟\机考官方模拟练习.pdf</div>
+  <div class="meta">
+    <span class="badge">机考说明</span>
+    <span class="badge">7 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 7</span>
+  </div>
+</a><a class="card" data-card data-category="机考讲解及模拟" data-kind="机考说明" data-search="软考在线模拟系统的一些理解说明 03、机考讲解及模拟\软考在线模拟系统的一些理解说明.pdf 机考讲解及模拟 机考说明" href="docs/软考在线模拟系统的一些理解说明-b7b8fb40.html">
+  <h3>软考在线模拟系统的一些理解说明</h3>
+  <div class="path">03、机考讲解及模拟\软考在线模拟系统的一些理解说明.pdf</div>
+  <div class="meta">
+    <span class="badge">机考说明</span>
+    <span class="badge">17 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 17</span>
+  </div>
+</a></div><h2 class="section-title">2025年软考实名认证操作流程及常见问题说明</h2><div class="grid"><a class="card" data-card data-category="2025年软考实名认证操作流程及常见问题说明" data-kind="报考指南" data-search="2025年软考实名认证操作流程及常见问题说明 04、 2025年软考实名认证操作流程及常见问题说明\2025年软考实名认证操作流程及常见问题说明.pdf 2025年软考实名认证操作流程及常见问题说明 报考指南" href="docs/2025年软考实名认证操作流程及常见问题说明-c3c9a764.html">
+  <h3>2025年软考实名认证操作流程及常见问题说明</h3>
+  <div class="path">04、 2025年软考实名认证操作流程及常见问题说明\2025年软考实名认证操作流程及常见问题说明.pdf</div>
+  <div class="meta">
+    <span class="badge">报考指南</span>
+    <span class="badge">7 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 7</span>
+  </div>
+</a><a class="card" data-card data-category="2025年软考实名认证操作流程及常见问题说明" data-kind="报考指南" data-search="2025年软考报名方式调整及报名相关事宜 04、 2025年软考实名认证操作流程及常见问题说明\2025年软考报名方式调整及报名相关事宜.pdf 2025年软考实名认证操作流程及常见问题说明 报考指南" href="docs/2025年软考报名方式调整及报名相关事宜-3d6cf0b1.html">
+  <h3>2025年软考报名方式调整及报名相关事宜</h3>
+  <div class="path">04、 2025年软考实名认证操作流程及常见问题说明\2025年软考报名方式调整及报名相关事宜.pdf</div>
+  <div class="meta">
+    <span class="badge">报考指南</span>
+    <span class="badge">12 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 12</span>
+  </div>
+</a></div><h2 class="section-title">学前必看 - 软考基本介绍讲解及考试时间</h2><div class="grid"><a class="card" data-card data-category="学前必看 - 软考基本介绍讲解及考试时间" data-kind="报考指南" data-search="软考报考流程指南 05、学前必看 - 软考基本介绍讲解及考试时间\软考报考流程指南.pdf 学前必看 - 软考基本介绍讲解及考试时间 报考指南" href="docs/软考报考流程指南-713acdb5.html">
+  <h3>软考报考流程指南</h3>
+  <div class="path">05、学前必看 - 软考基本介绍讲解及考试时间\软考报考流程指南.pdf</div>
+  <div class="meta">
+    <span class="badge">报考指南</span>
+    <span class="badge">6 页</span>
+    <span class="badge text">文字 0</span>
+    <span class="badge scan">图像 6</span>
+  </div>
+</a></div><h2 class="section-title">根目录资料</h2><div class="grid"><a class="card" data-card data-category="根目录资料" data-kind="学习资料" data-search="25年考试指南 25年考试指南.pdf 根目录资料 学习资料" href="docs/25年考试指南-80c0ba25.html">
+  <h3>25年考试指南</h3>
+  <div class="path">25年考试指南.pdf</div>
+  <div class="meta">
+    <span class="badge">学习资料</span>
+    <span class="badge">8 页</span>
+    <span class="badge text">文字 6</span>
+    <span class="badge scan">图像 2</span>
+  </div>
+</a></div>
+    </main>
+  </div>
+  <script>
+const search = document.querySelector('#search');
+const cards = [...document.querySelectorAll('[data-card]')];
+const chips = [...document.querySelectorAll('[data-filter]')];
+let active = '全部';
+function apply(){
+  const q = search.value.trim().toLowerCase();
+  cards.forEach(card => {
+    const okFilter = active === '全部' || card.dataset.category === active || card.dataset.kind === active;
+    const okSearch = !q || card.dataset.search.toLowerCase().includes(q);
+    card.style.display = okFilter && okSearch ? '' : 'none';
+  });
+}
+search.addEventListener('input', apply);
+chips.forEach(chip => chip.addEventListener('click', () => {
+  active = chip.dataset.filter;
+  chips.forEach(c => c.classList.toggle('active', c === chip));
+  apply();
+}));
+</script>
+</body>
+</html>
